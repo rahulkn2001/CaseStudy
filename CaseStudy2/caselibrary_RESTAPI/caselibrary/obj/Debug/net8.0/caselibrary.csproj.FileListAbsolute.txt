@@ -1,0 +1,14 @@
+C:\Users\SudhanvaGV\source\repos\caselibrary\caselibrary\bin\Debug\net8.0\caselibrary.deps.json
+C:\Users\SudhanvaGV\source\repos\caselibrary\caselibrary\bin\Debug\net8.0\caselibrary.dll
+C:\Users\SudhanvaGV\source\repos\caselibrary\caselibrary\bin\Debug\net8.0\caselibrary.pdb
+C:\Users\SudhanvaGV\source\repos\caselibrary\caselibrary\obj\Debug\net8.0\caselibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SudhanvaGV\source\repos\caselibrary\caselibrary\obj\Debug\net8.0\caselibrary.AssemblyInfoInputs.cache
+C:\Users\SudhanvaGV\source\repos\caselibrary\caselibrary\obj\Debug\net8.0\caselibrary.AssemblyInfo.cs
+C:\Users\SudhanvaGV\source\repos\caselibrary\caselibrary\obj\Debug\net8.0\caselibrary.csproj.CoreCompileInputs.cache
+C:\Users\SudhanvaGV\source\repos\caselibrary\caselibrary\obj\Debug\net8.0\caselibrary.dll
+C:\Users\SudhanvaGV\source\repos\caselibrary\caselibrary\obj\Debug\net8.0\refint\caselibrary.dll
+C:\Users\SudhanvaGV\source\repos\caselibrary\caselibrary\obj\Debug\net8.0\caselibrary.pdb
+C:\Users\SudhanvaGV\source\repos\caselibrary\caselibrary\obj\Debug\net8.0\ref\caselibrary.dll
+C:\Users\SudhanvaGV\source\repos\caselibrary\caselibrary\bin\Debug\net8.0\caselibrary.runtimeconfig.json
+C:\Users\SudhanvaGV\source\repos\caselibrary\caselibrary\obj\Debug\net8.0\caselibrary.csproj.AssemblyReference.cache
+C:\Users\SudhanvaGV\source\repos\caselibrary\caselibrary\obj\Debug\net8.0\caselibrary.genruntimeconfig.cache
