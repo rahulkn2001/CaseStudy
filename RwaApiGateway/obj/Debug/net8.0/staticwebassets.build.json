@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "m+H64PT17dKOD0XeGpvqr27cPEMtvSZZh3D8ioLJVME=",
+  "Source": "RwaApiGateway",
+  "BasePath": "_content/RwaApiGateway",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
