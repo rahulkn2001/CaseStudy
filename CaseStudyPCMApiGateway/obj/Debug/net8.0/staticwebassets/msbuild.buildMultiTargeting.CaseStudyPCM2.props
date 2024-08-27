@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\CaseStudyPCM2.props" />
+</Project>
