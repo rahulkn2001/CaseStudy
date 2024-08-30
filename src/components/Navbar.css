@@ -1,0 +1,43 @@
+/* Navbar.css */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    padding: 1rem;
+  }
+  
+  ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-right: 1rem;
+  }
+  
+  .profile-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .profile-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .profile-circle:hover {
+    background-color: #0056b3;
+  }
+  
