@@ -1,0 +1,6 @@
+@Retailgateway_HostAddress = http://localhost:5278
+
+GET {{Retailgateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
