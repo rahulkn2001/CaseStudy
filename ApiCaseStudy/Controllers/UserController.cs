@@ -27,6 +27,7 @@ public class AuthController : ControllerBase
     [HttpPost]
     [Route("authenticate")]
     [AllowAnonymous]
+    [HttpPost]
     public async Task<IActionResult> Authenticate([FromBody] Usertable user)
     {
         // Log incoming user data for debugging
@@ -34,7 +35,7 @@ public class AuthController : ControllerBase
 
         // Check for user existence and password match
         var dbUser = await _context.Usertables
-            .FirstOrDefaultAsync(u => u.UserId == user.UserId);
+            .FirstOrDefaultAsync(u => u.Email == user.Email);
 
         if (dbUser == null)
         {
@@ -51,9 +52,9 @@ public class AuthController : ControllerBase
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-                    new Claim(ClaimTypes.Name, dbUser.UserId.Value.ToString()),
-                    // Add other claims if needed
-                }),
+                new Claim(ClaimTypes.Name, dbUser.UserId.Value.ToString()),
+                // Add other claims if needed
+            }),
                 Issuer = _config["JWT:Issuer"],
                 Audience = _config["JWT:Audience"],
                 Expires = DateTime.UtcNow.AddMinutes(10),
@@ -62,11 +63,26 @@ public class AuthController : ControllerBase
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            return Ok(tokenHandler.WriteToken(token));
+            var tokenString = tokenHandler.WriteToken(token);
+
+            // Create the response object
+            var response = new AuthResponse
+            {
+                Token = tokenString,
+                UserId = dbUser.UserId.Value.ToString()
+            };
+
+            return Ok(response);
         }
         else
         {
             return Unauthorized("Invalid username or password");
         }
     }
+    public class AuthResponse
+    {
+        public string Token { get; set; }
+        public string UserId { get; set; }
+    }
+
 }
