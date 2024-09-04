@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
 using caselibrary.Models;
+using caselibrary.repos;
 
 [ApiController]
 [Route("[controller]")]
@@ -83,6 +84,39 @@ public class AuthController : ControllerBase
     {
         public string Token { get; set; }
         public string UserId { get; set; }
+    }
+    [HttpGet("{userId}")]
+
+    public async Task<Usertable> GetUserByIdAsync(int userId)
+    {
+        // Ensure UserId is not null and is valid
+        if (userId <= 0)
+        {
+            return null;
+        }
+
+        return await _context.Usertables.FindAsync(userId);
+    }
+
+
+    [HttpPut("{userId}")]
+
+    public async Task UpdateUserAsync(Usertable user)
+    {
+        if (user == null)
+            throw new ArgumentNullException(nameof(user));
+
+        // Check if the user exists
+        var existingUser = await _context.Usertables.FindAsync(user.UserId);
+
+        if (existingUser == null)
+        {
+            throw new InvalidOperationException("User not found.");
+        }
+
+        // Update the user
+        _context.Entry(existingUser).CurrentValues.SetValues(user);
+        await _context.SaveChangesAsync();
     }
 
 }

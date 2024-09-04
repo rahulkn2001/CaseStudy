@@ -225,6 +225,7 @@ public partial class RetailapplicationContext : DbContext
             entity.HasIndex(e => e.InventoryId, "UQ__Product__F5FDE6D28EC217AE").IsUnique();
 
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
+            entity.Property(e => e.Specification).HasColumnName("Specification");
             entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
             entity.Property(e => e.InventoryId).HasColumnName("InventoryID");
             entity.Property(e => e.Price).HasColumnType("decimal(10, 2)");

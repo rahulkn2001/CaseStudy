@@ -13,6 +13,8 @@ public partial class Product
 
     public int? CategoryId { get; set; }
 
+    public string ?Specification { get; set; }
+
     public int? InventoryId { get; set; }
     public byte[]? productimages { get; set; }
     public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
