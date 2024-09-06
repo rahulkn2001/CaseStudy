@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProductMicroservices.Models;
+using ProductMicroservices.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<CartService>();
+builder.Services.AddScoped<ProductService>();
 builder.Services.AddDbContext<RetailapplicationContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Constr")));
 builder.Services.AddCors(options =>

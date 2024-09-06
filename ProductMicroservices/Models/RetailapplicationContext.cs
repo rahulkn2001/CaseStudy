@@ -222,6 +222,7 @@ public partial class RetailapplicationContext : DbContext
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
             entity.Property(e => e.InventoryId).HasColumnName("InventoryID");
+            entity.Property(e => e.Specification).HasColumnName("Specification");
             entity.Property(e => e.Price).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.ProductName)
                 .HasMaxLength(255)

@@ -14,7 +14,7 @@ public partial class Product
     public int? CategoryId { get; set; }
 
     public int? InventoryId { get; set; }
-
+    public string ?Specification {  get; set; }
     public byte[]? Productimages { get; set; }
 
     public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();

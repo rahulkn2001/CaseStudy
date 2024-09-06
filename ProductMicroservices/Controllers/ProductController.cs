@@ -31,9 +31,12 @@ namespace ProductMicroservices.Controllers
                 .Where(p => p.Category.CategoryName == categoryName)
                 .Select(p => new ProductDto
                 {
+                    ProductId = p.ProductId,
                     ProductName = p.ProductName,
                     Price = p.Price,
-                    CategoryName = p.Category.CategoryName
+                    CategoryName = p.Category.CategoryName,
+                    Specification=p.Specification,
+                    Images=p.Productimages
                 })
                 .ToListAsync();
 
@@ -47,11 +50,66 @@ namespace ProductMicroservices.Controllers
 
         public class ProductDto
         {
+            public int ProductId { get; set; }
             public string ProductName { get; set; }
             public decimal Price { get; set; }
             public string CategoryName { get; set; }
+
+            public string Specification { get; set; }
+
+            public byte[] Images { get; set; }
         }
 
-       
+        [HttpGet("products/{productId}")]
+        public async Task<ActionResult<ProductDto>> GetProductById([FromRoute] int productId)
+        {
+            var product = await _context.Products
+                .Where(p => p.ProductId == productId)
+                .Select(p => new ProductDto
+                {
+                    ProductId = p.ProductId,
+                    ProductName = p.ProductName,
+                    Price = p.Price,
+                    CategoryName = p.Category.CategoryName,
+                    Specification = p.Specification 
+                    , Images = p.Productimages
+                })
+                .FirstOrDefaultAsync();
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(product);
+        }
+
+        [HttpGet("averageratings/{productId}")]
+        public async Task<ActionResult<ProductRatingDto>> GetAverageRatingByProductId(int productId)
+        {
+            var rating = await _context.Reviews
+                .Where(r => r.ProductId == productId)
+                .GroupBy(r => r.ProductId)
+                .Select(g => new ProductRatingDto
+                {
+                    ProductId = (int)g.Key,
+                    AvgRating = (double)g.Average(r => r.Rating)
+                })
+                .FirstOrDefaultAsync(); // Use FirstOrDefaultAsync to get a single result or null
+
+            if (rating == null)
+            {
+                return Ok(4);
+            }
+
+            return Ok(rating);
+        }
+
+        public class ProductRatingDto
+        {
+            public int ProductId { get; set; }
+            public double AvgRating { get; set; }
+        }
+
     }
 }
