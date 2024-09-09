@@ -1,6 +1,0 @@
-@CaseStudyWishlist_HostAddress = http://localhost:5279
-
-GET {{CaseStudyWishlist_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
