@@ -1,0 +1,31 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Reviews",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5296
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/reviews",
+      "UpstreamHttpMethod": [ "GET","POST","PUT","DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/WishlistItems",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5207
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/wishlist",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5259"
+  }
+}
